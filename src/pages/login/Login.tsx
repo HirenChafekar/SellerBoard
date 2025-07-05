@@ -11,6 +11,23 @@ export default function Login() {
     <div
       className={styles.login_container}
     >
+      <div style={{ height: "100%", position: "relative" }}>
+        <img src={loginFrame} width={"100%"} style={{ height: "100%" }} />
+        <div
+          style={{
+            position: "absolute",
+            bottom: "5%",
+            left: "25px",
+            width: "70%",
+          }}
+        >
+          <p className={styles.quant_title}>Unlock Opportunities with Quant</p>
+          <p className={styles.quant_desc}>
+            Offer extreme personalization, bespoke research,tailored to Indian
+            markets.
+          </p>
+        </div>
+      </div>
       <div
         className={styles.login_container_left}
         style={{ height: "100vh", position:"relative" }}
@@ -20,7 +37,8 @@ export default function Login() {
             <img src={logoImage} style={{ height: "60px" }} />
           </div>
           <div style={{display:"flex", flexDirection:"column", rowGap:"4px"}}>
-            <p className={styles.login_title}>Sign in to Astrat Invest </p>
+            <p className={styles.login_title}>Sign in to Seller Board </p>
+            <span className={styles.login_subtitle}>Supercharge your Amazon store</span>
           </div>
         </div>
         <Form
@@ -64,23 +82,7 @@ export default function Login() {
           
         </div>
       </div>
-      <div style={{ height: "100%", position: "relative" }}>
-        <img src={loginFrame} width={"100%"} style={{ height: "100%" }} />
-        <div
-          style={{
-            position: "absolute",
-            bottom: "5%",
-            left: "25px",
-            width: "70%",
-          }}
-        >
-          <p className={styles.quant_title}>Unlock Opportunities with Quant</p>
-          <p className={styles.quant_desc}>
-            Offer extreme personalization, bespoke research,tailored to Indian
-            markets.
-          </p>
-        </div>
-      </div>
+      
     </div>
   );
 }

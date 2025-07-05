@@ -44,6 +44,15 @@
       );
     }
   }
+  &subtitle {
+ @include typography(
+      $color: #636D7E,
+      $align: center,
+      $size: 14px,
+      $weight: 4,
+      $height: 24px
+    );
+  }
 }
 
 .quant_ {
