@@ -45,6 +45,7 @@ interface componentTheme {
     };
     Select: {
       controlHeight: number,
+      activeBorderColor: string
     };
     DatePicker: {
       controlHeight: number,
@@ -82,6 +83,7 @@ interface componentTheme {
     },
     Select: {
       controlHeight: 40,
+      activeBorderColor: "#E9EAEB"
     },
     DatePicker: {
       controlHeight: 40,

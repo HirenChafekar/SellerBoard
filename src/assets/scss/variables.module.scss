@@ -19,6 +19,7 @@ $grey7: #7B8C9F;
 $grey8: #595959;
 $grey9: #454545;
 $grey10: #262626;
+$grey11: #414651;
 
 $primary: $blue;
 $primary_hover: #40a9ff;
@@ -102,7 +103,7 @@ $breakpoints: (
 // mixins
 @mixin typography(
   $color: null,
-  $family: null,
+  $family: "Inter",
   $size: null,
   $weight: null,
   $style: normal,
