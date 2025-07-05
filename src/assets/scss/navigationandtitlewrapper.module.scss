@@ -1,0 +1,22 @@
+@use "./variables.module.scss" as *;
+@use "./main_content.module.scss" as *;
+@use "./global.scss" as *;
+
+.navigation_and_title_wrapper {
+    &_title {
+        @include typography(
+            $size: 22px,
+            $weight: 6,
+            $height: 22px,
+            $color: $black1
+        );
+    }
+    &_desc {
+        @include typography(
+            $size: 16px,
+            $weight: 4,
+            $height: 24px,
+            $color: $grey9
+        );
+    }
+}

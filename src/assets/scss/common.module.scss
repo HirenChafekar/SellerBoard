@@ -1,0 +1,69 @@
+@use "./variables.module.scss" as *;
+@use "./main_content.module.scss" as *;
+@use "./global.scss" as *;
+
+.common_ {
+  &top_layout {
+    @include flexbox($display: flex, $justifyContent: space-between);
+  }
+  &btn {
+    @include flexbox($display: flex, $alignItems: center, $columnGap: 8px);
+    @include box($padding: 10px 16px);
+    @include typography(
+      $color: $grey11,
+      $size: 14px,
+      $weight: 6,
+      $height: 20px
+    );
+    &_primary,
+    &_primary:hover {
+      @include flexbox($display: flex, $alignItems: center, $columnGap: 8px);
+      @include box($padding: 10px 16px, $background: #7f56d9 !important);
+      @include typography(
+        $color: $white,
+        $size: 14px,
+        $weight: 6,
+        $height: 20px
+      );
+    }
+    &_container {
+      @include flexbox($display: flex, $alignItems: center, $columnGap: 12px);
+    }
+  }
+  &ftux_block {
+    @include flexbox(
+      $display: flex,
+      $direction: column,
+      $alignItems: center,
+      $rowGap: 24px
+    );
+    margin: 0 auto;
+    max-width: 536px;
+    text-align: center;
+    padding: 32px 0;
+    &_content {
+      @include flexbox(
+      $display: flex,
+      $direction: column,
+      $alignItems: center,
+      $rowGap: 10px
+    );
+    &_title {
+      @include typography(
+        $color: $black1,
+        $size: 18px,
+        $weight: 6,
+        $height: 218x
+      );
+    }
+      &_desc {
+      @include typography(
+        $color: $grey9,
+        $size: 16px,
+        $weight: 4,
+        $height: 22.4px
+      );
+    }
+    }
+  }
+}

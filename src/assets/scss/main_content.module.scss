@@ -6,9 +6,9 @@
 }
 
 .main_layout {
-  height: calc(100vh - 14px);
-  border-radius: 8px;
-  border: 1px solid #E3E3E3;
+  @include padding($all: 32px, $bottom: 0);
+  height: 100%;
+  
 }
 
 .backgroundclass {

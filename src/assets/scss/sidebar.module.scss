@@ -10,9 +10,8 @@
   background: $white;
   @include padding($rectangle: 24px 22px);
   border-right: 1px solid #e9eaeb;
-  width: 100%;
-  max-width: 264px;
-
+  width: -webkit-fill-available;
+  flex: 0 0 auto;
   //Scroll bars
   ::-webkit-scrollbar-track {
     border-radius: 10px;

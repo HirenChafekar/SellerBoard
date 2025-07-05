@@ -1,14 +1,8 @@
-import SVGComponent from "@/utils/Svgs";
-import { Breadcrumb, Tooltip } from "antd";
+import { Tooltip } from "antd";
 import { Link } from "react-router-dom";
-
-interface BreadcrumbItem {
-  title: string;
-  href?: string;
-}
-
+import SVGComponent from "../utilts/Svgs";
+import styles from "../assets/scss/navigationandtitlewrapper.module.scss";
 interface NavigationAndTitleWrapperProps {
-  breadcrumbsList?: BreadcrumbItem[];
   title: string;
   showBackArrow?: boolean;
   redirectionPath?: string;
@@ -21,9 +15,8 @@ interface NavigationAndTitleWrapperProps {
 }
 
 export const NavigationAndTitleWrapper = ({
-  breadcrumbsList,
   title,
-  showBackArrow = true,
+  showBackArrow = false,
   redirectionPath = "../",
   showInfo = false,
   tooltipContent = "",
@@ -41,7 +34,7 @@ export const NavigationAndTitleWrapper = ({
       style={{ display: "flex", alignItems: "center", columnGap: "6px" }}
     >
       <SVGComponent src="backcarat" color="#262626" />
-      <h2 style={{ color: "#262626" }}> {title}</h2>
+      <h2 className={styles.navigation_and_title_wrapper_title}> {title}</h2>
     </Link>
   );
 
@@ -62,7 +55,6 @@ export const NavigationAndTitleWrapper = ({
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-      {false && <Breadcrumb items={breadcrumbsList} />}
       <div style={{ display: "flex", alignItems: "center", columnGap: "6px" }}>
         {showBackArrow ? (
           <>
@@ -74,13 +66,17 @@ export const NavigationAndTitleWrapper = ({
             style={{ display: "flex", flexDirection: "column", rowGap: "4px" }}
           >
             <div>
-              <h2 style={{ fontWeight: "600", fontSize: "20px", color: "#262626"  }}>{title}</h2>
+              <h2 className={styles.navigation_and_title_wrapper_title}>
+                {title}
+              </h2>
               {renderInfoTooltip()}
             </div>
             {description && (
               <span
-                className={descriptionClass}
-                style={{ color: descriptionClass ? "" : "#7B8C9F" }}
+                className={
+                  descriptionClass ||
+                  styles.navigation_and_title_wrapper_desc
+                }
               >
                 {description}
               </span>

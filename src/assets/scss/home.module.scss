@@ -1,0 +1,40 @@
+@use "./variables.module.scss" as *;
+@use "./main_content.module.scss" as *;
+@use "./global.scss" as *;
+
+.home_ {
+  &add_billing_profile {
+    @include margin($top: 32px);
+    @include box(
+      $background: #ffedd5,
+      $border: 1.5px solid #fdba74,
+      $radius: 8px,
+      $padding: 24px
+    );
+    @include flexbox(
+      $display: flex,
+      $alignItems: center,
+      $columnGap: 12px,
+      $justifyContent: space-between
+    );
+    &_left {
+      @include flexbox($display: flex, $direction: column, $rowGap: 10px);
+    }
+    &_title {
+      @include typography(
+        $color: $brown1,
+        $size: 16px,
+        $weight: 6,
+        $height: 16px
+      );
+    }
+    &_desc {
+      @include typography(
+        $color: $brown1,
+        $size: 16px,
+        $weight: 4,
+        $height: 22.4px
+      );
+    }
+  }
+}

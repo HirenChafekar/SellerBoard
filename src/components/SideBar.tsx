@@ -38,8 +38,8 @@ export default function SideBar() {
     let defaultSelectedKeysConst = [];
 
     SideBarJson.forEach((item) => {
-      if (item.link_to && defaultSelectedKeysConst.length == 0) {
-        checkRoute(item.link_to) ? (defaultSelectedKeysConst = [item.key]) : "";
+      if (item?.link_to && defaultSelectedKeysConst.length == 0) {
+        checkRoute(item?.link_to) ? (defaultSelectedKeysConst = [item.key]) : "";
       }
     });
     setDefaultSelectedKeys(defaultSelectedKeysConst);
