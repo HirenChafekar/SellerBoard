@@ -1,6 +1,6 @@
 import styles from "../../assets/scss/login.module.scss";
 import { Button, Form, Input } from "antd";
-import { FieldLabel } from "../../globalComponents/FieldLabel";
+import { FieldLabel } from "../../components/FieldLabel.tsx";
 import { FieldType } from "../../interfaces/login.ts";
 import logoImage from "../../assets/images/logo.png";
 import loginFrame from "../../assets/images/login_frame.png";

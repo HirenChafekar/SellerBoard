@@ -1,6 +1,7 @@
 import React, { JSX } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Login from "../pages/login/Login.tsx";
+import Organization from "../pages/organization/index.tsx";
 
 interface IProtectedProps {
   children: JSX.Element;
@@ -21,6 +22,14 @@ export default function BaseRouter() {
     <Routes>
       {/* Public Routes */}
       <Route path="/login" element={<Login />} />
+      <Route
+        path="organization"
+        element={
+          <RequireAuth>
+            <Organization />
+          </RequireAuth>
+        }
+      ></Route>
     </Routes>
   );
 }
