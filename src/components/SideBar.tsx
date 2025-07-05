@@ -58,7 +58,7 @@ export default function SideBar() {
   };
 
   const renderSubMenu = (item) => {
-    if (item.children.length > 0) {
+    if (item?.children?.length > 0) {
       return (
         <SubMenu
           key={item.key}
