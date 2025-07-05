@@ -1,0 +1,217 @@
+@use "./variables.module.scss" as *;
+
+.sidebar_container_main {
+  @include flexbox(
+    $display: flex,
+    $direction: column,
+    $justifyContent: space-between
+  );
+  height: -webkit-fill-available;
+  background: #10161e;
+  @include padding($all: 24px);
+  border-radius: 6px;
+  width: -webkit-fill-available;
+
+  &_feedback {
+    position: relative;
+    background: $secondary7;
+    @include padding($all: 12px);
+    @include typography($color: white, $size: 13px);
+    border-radius: 6px;
+    &_header {
+      @include typography($transform: uppercase, $weight: 6, $size: 14px);
+      @include margin($bottom: 4px);
+    }
+    &_cta {
+      @include typography($color: $warning, $size: 14px, $weight: 6);
+      border-bottom: 3px $warning dashed;
+      @include margin($top: 8px);
+      width: fit-content;
+      @include flexbox(
+        $display: flex,
+        $direction: row,
+        $alignItems: center,
+        $columnGap: 4px
+      );
+      &_icon {
+        @include flexbox(
+          $display: flex,
+          $direction: row,
+          $alignItems: center,
+          $justifyContent: center
+        );
+      }
+    }
+    svg {
+      // position: absolute;
+      // right: 9px;
+      // bottom: 8px;
+    }
+  }
+  &_trial {
+    @include margin($all: 5px 0px);
+    width: 100%;
+    @include flexbox(
+      $display: flex,
+      $direction: row,
+      $columnGap: 4px,
+      $alignItems: center
+    );
+    &_left {
+      height: 7px;
+      @include box($radius: 1px, $border: 0.1px solid #ffffff66);
+    }
+    &_passed {
+      height: 8px;
+      @include box($radius: 1px);
+    }
+  }
+  //Scroll bars
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  ::-webkit-scrollbar-corner {
+    background: rgba(0, 0, 0, 0);
+  }
+}
+.sidebar_container {
+  // overflow-y: auto;
+  // height: 100%;
+  // @include scroll_hover;
+  @include flexbox($display: flex, $direction: column, $rowGap: 24px);
+  @include typography($color: #fff);
+  &_org {
+    @include padding($rectangle: 8px 16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+  }
+  .menu {
+    &_items {
+      @include flexbox($display: flex, $rowGap: 30px, $direction: column);
+      height: 67vh;
+      overflow: scroll;
+      &_header {
+        @include typography(
+          $color: rgba(255, 255, 255, 0.4),
+          $size: 12px,
+          $letterSpacing: 0.5px,
+          $weight: 5
+        );
+        @include padding($rectangle: 0 16px);
+      }
+    }
+    &_item,
+    &_sub_item {
+      @include typography($color: #fff);
+      @include flexbox(
+        $display: flex!important,
+        $alignItems: center,
+        $columnGap: 12px
+      );
+      @include transition;
+      @include padding($rectangle: 8px 16px);
+      &:hover {
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.05);
+      }
+      a {
+        @include typography($color: #fff, $size: 14px, $weight: 500);
+        @include transition;
+        &:hover {
+          @include typography($color: #fff, $size: 14px, $weight: 500);
+        }
+      }
+    }
+  }
+}
+
+.flex_center {
+  @include flexbox($display: flex, $alignItems: center, $gridGap: 12px);
+}
+.institute_logo {
+  height: 40px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.institute_name {
+  color: #fff;
+  text-transform: capitalize;
+}
+.branch {
+  position: relative;
+  &_name {
+    @include typography(
+      $color: rgba(255, 255, 255, 0.4),
+      $size: 10px,
+      $letterSpacing: 0.5px,
+      $weight: 5
+    );
+    @include padding($rectangle: 0 6px);
+    position: absolute;
+    background-color: #10161e;
+    top: -7px;
+    z-index: 1;
+    left: 10px;
+  }
+}
+
+.sidebar_footer {
+  @include flexbox($display: flex, $direction: column);
+  &_modal {
+    @include flexbox($display: flex, $direction: column, $rowGap: 20px);
+  }
+}
+
+.sidebar_user_details {
+  @include margin($top: 16px);
+  @include flexbox(
+    $display: flex,
+    $columnGap: 8px,
+    $alignItems: center,
+    $justifyContent: space-between
+  );
+  .user_img {
+    height: 32px;
+    width: 32px;
+    border-radius: 100px;
+    object-fit: cover;
+    background-color: white;
+  }
+  .user_name_section {
+    @include typography($color: white);
+    .user_name {
+      @include typography($weight: 6);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 170px;
+    }
+    .user_role {
+      @include typography($color: #b1bfda, $size: 12px, $weight: 6);
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 170px;
+    }
+    @include flexbox($display: flex, $direction: column);
+  }
+}
+
+.sidebar_header {
+  @include gridbox(
+    $display: grid,
+    $template: 40px 1fr,
+    $columnGap: 12px,
+    $alignItems: center
+  );
+}

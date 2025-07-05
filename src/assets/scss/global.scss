@@ -1,0 +1,390 @@
+@use "./variables.module.scss" as *;
+
+//Scroll bars
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  // background-color: #F5F5F5;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  // background-color: #F5F5F5;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+//Ant override
+.ant-segmented {
+  padding: 4px;
+}
+
+.ant-menu-title-content {
+  @include margin($left: 8px);
+}
+
+.ant-upload {
+  width: 100%;
+}
+
+.sidebar_footer_fixed {
+  @include flexbox(
+    $display: flex,
+    $rowGap: 24px,
+    $justifyContent: flex-end,
+    $alignItems: center
+  );
+  background: #ffffff;
+  @include padding($all: 16px 24px);
+  position: fixed;
+  z-index: 999;
+  gap: 8px;
+  box-shadow: 0px -4px 14px 0px rgba(0, 0, 0, 0.0784313725);
+  bottom: 0;
+  right: 0;
+}
+
+.ant-drawer-close {
+  position: absolute;
+  left: 0px;
+  transform: translateX(-100%);
+  top: 10px;
+  left: 0;
+  color: white !important;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: -10px;
+  font-size: 18px;
+  cursor: pointer;
+  @include transition;
+
+  &:hover {
+    background-color: white;
+    color: rgba(0, 0, 0, 0.8) !important;
+    @include transition;
+  }
+}
+
+.ant-drawer-header {
+  padding-bottom: 0px !important;
+}
+
+.ant-form-item .ant-form-item-extra {
+  @include margin($top: 4px);
+  @include typography($size: 13px);
+}
+
+.ant-tag {
+  @include typography($weight: 6);
+  text-transform: uppercase;
+  border-radius: 100px;
+  @include padding($all: 3px 12px);
+}
+.side_bar_tag {
+  @include padding($all: 3px 4px);
+  @include typography($size: 10px, $height: 10px);
+  border-radius: 4px;
+}
+
+.ant-tag-success {
+  color: #17a76a;
+  background-color: #e8f9f2 !important;
+}
+
+.ant-tag-warning {
+  color: #ffa305 !important;
+  background-color: #fff6e0 !important;
+  border: #fff6e0 !important;
+}
+
+h2,
+h3 {
+  font-weight: 600;
+}
+
+h4 {
+  font-weight: 600;
+}
+
+.fc-col-header-cell-cushion {
+  font-weight: 500;
+  color: $grey9;
+}
+
+.fc-theme-standard td,
+.fc-theme-standard th {
+  border: 1px solid #ededed;
+}
+
+.fc-scrollgrid,
+.fc-scrollgrid-liquid {
+  border: none !important;
+}
+
+.fc-timegrid-slot-label-cushion,
+.fc-scrollgrid-shrink-cushion {
+  text-transform: uppercase;
+  color: #71717a;
+  font-weight: 500;
+}
+
+.drawer_ {
+  &title {
+    @include typography(
+      $color: #262626,
+      $size: 14px,
+      $weight: 5,
+      $height: 24px
+    );
+
+    span {
+      @include typography(
+        $color: #454545,
+        $size: 14px,
+        $weight: 4,
+        $height: 24px
+      );
+    }
+  }
+}
+
+.more_options {
+  @include flexbox(
+    $display: flex,
+    $alignItems: center,
+    $justifyContent: center
+  );
+}
+
+.success_btn {
+  @include typography($color: #fff, $size: 14px, $weight: 5, $height: 22px);
+  @include box($radius: 6px, $background: #1bc47d, $padding: 10px 24px);
+  @include flexbox(
+    $display: flex,
+    $alignItems: center,
+    $justifyContent: center
+  );
+
+  &:hover {
+    @include typography(
+      $color: #fff !important,
+      $size: 14px,
+      $weight: 5,
+      $height: 22px
+    );
+    @include box($border: 1px solid #14a362 !important, $background: #14a362 !important);
+    @include flexbox(
+      $display: flex,
+      $alignItems: center,
+      $justifyContent: center
+    );
+  }
+}
+
+.modal_footer {
+  @include flexbox(
+    $display: flex,
+    $alignItems: center,
+    $justifyContent: flex-end,
+    $columnGap: 8px
+  );
+}
+
+.label_btn {
+  @include box(
+    $radius: 4px,
+    $background: #e8efff,
+    $padding: 6px 12px,
+    $border: none,
+    $shadow: none
+  );
+  height: 30px;
+  @include flexbox(
+    $display: flex,
+    $alignItems: center,
+    $justifyContent: center
+  );
+  > span {
+    @include typography(
+      $color: #1463ff !important,
+      $size: 11px,
+      $weight: 7,
+      $height: 140%
+    );
+  }
+}
+
+//Flex layout
+.flex_center {
+  @include flexbox(
+    $display: flex,
+    $justifyContent: center,
+    $alignItems: center
+  );
+}
+.flex_center_vertical {
+  display: flex !important;
+  @include flexbox($alignItems: center);
+}
+
+.width_100 {
+  width: 100%;
+}
+
+.info_ {
+  &title {
+    @include typography(
+      $color: #333,
+      $align: center,
+      $size: 16px,
+      $weight: 6,
+      $height: 140%
+    );
+  }
+  &desc {
+    @include typography(
+      $color: #777,
+      $align: center,
+      $size: 14px,
+      $weight: 4,
+      $height: 150%
+    );
+  }
+}
+
+.height_auto {
+  height: auto !important;
+}
+
+.table_grey_column {
+  @include typography($color: $grey7, $size: 14px, $weight: 4, $height: 150%);
+}
+
+.hover_btn {
+  @include box(
+    $radius: 4px,
+    $background: #ffffff,
+    $padding: 8px 12px,
+    $border: none,
+    $shadow: none
+  );
+  @include flexbox($display: flex, $alignItems: center);
+  width: fit-content;
+  @include transition;
+
+  > span {
+    @include typography(
+      $color: #1463ff !important,
+      $size: 12px,
+      $weight: 6,
+      $height: 140%
+    );
+    @include flexbox($display: flex, $alignItems: center, $columnGap: 6px);
+  }
+  &:hover {
+    @include box($background: #e8efff);
+    @include transition;
+  }
+}
+
+.learn_more_link {
+  @include typography(
+    $color: #1463ff,
+    $size: 14px,
+    $weight: 4,
+    $height: normal,
+    $letterSpacing: -0.28px
+  );
+  @include box($cursor: pointer);
+}
+
+.icon_button {
+  @include flexbox($display: flex, $columnGap: 8px, $alignItems: center);
+}
+
+.branch_selector {
+  @include flexbox(
+    $display: flex,
+    $direction: column,
+    $alignItems: flex-start,
+    $justifyContent: start
+  );
+
+  &_dropdown {
+    @include box($cursor: pointer);
+    @include flexbox(
+      $display: flex,
+      $direction: row,
+      $columnGap: 5px,
+      $alignItems: center
+    );
+    @include typography($color: rgba(114, 20, 255, 1));
+    svg {
+      @include margin($top: 2px);
+      @include typography($color: #7b8c9f, $size: 14px);
+    }
+    &_disabled {
+      @include typography($color: rgba(123, 140, 159, 1));
+      @include box($cursor: not-allowed);
+      @include flexbox(
+        $display: flex,
+        $direction: row,
+        $columnGap: 5px,
+        $alignItems: center
+      );
+      svg {
+        @include margin($top: 2px);
+        @include typography($color: rgba(123, 140, 159, 1), $size: 14px);
+      }
+    }
+  }
+}
+
+.guidelines_container {
+  @include padding($all: 16px);
+  @include box($background: #f2f4f7, $radius: 6px);
+}
+
+.word-wrap {
+  word-wrap: break-word;
+}
+
+.subHeader {
+  @include typography($color: $grey8);
+}
+
+.text_success {
+  @include typography($color: $green7);
+}
+
+.text_warning {
+  @include typography($color: $yellow6);
+}
+
+.text_base {
+  @include typography($color: $grey8);
+}
+
+.fade_in {
+  opacity: 0;
+  animation: fadeInAnimation 0.5s ease forwards;
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

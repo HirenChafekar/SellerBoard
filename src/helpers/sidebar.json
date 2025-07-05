@@ -1,0 +1,92 @@
+[
+  {
+    "key": "dashboard",
+    "name": "Dashboard",
+    "icon": "dashboard",
+    "children": [
+      {
+        "key": "live_trade_execution",
+        "name": "Live Trade Execution",
+        "icon": "live_trade_execution",
+        "link_to": "/main/dashboard/live-trade-execution"
+      },
+      {
+        "key": "fund_overview",
+        "name": "Fund Overview",
+        "icon": "fund_overview",
+        "link_to": "/main/dashboard/fund-overview"
+      },
+      {
+        "key": "client_overview",
+        "name": "Client Overview",
+        "icon": "client_overview",
+        "link_to": "/main/dashboard/client-overview"
+      },
+      {
+        "key": "sector_overview",
+        "name": "Sector Overview",
+        "icon": "sector_overview",
+        "link_to": "/main/dashboard/sector-overview"
+      },
+      {
+        "key": "stock_overview",
+        "name": "Stock Overview",
+        "icon": "stock_overview",
+        "link_to": "/main/dashboard/stock-overview"
+      }
+    ],
+    "roles": [],
+    "inst": [],
+    "hidden": false
+  },
+  {
+    "key": "users",
+    "name": "Users",
+    "icon": "users",
+    "children": [],
+    "roles": [],
+    "inst": [],
+    "link_to": "/main/users",
+    "hidden": false
+  },
+  {
+    "key": "clients",
+    "name": "Clients",
+    "icon": "clients",
+    "children": [],
+    "roles": [],
+    "inst": [],
+    "link_to": "/main/clients",
+    "hidden": false
+  },
+  {
+    "key": "holdings",
+    "name": "Holdings",
+    "icon": "holdings",
+    "children": [],
+    "roles": [],
+    "inst": [],
+    "link_to": "/main/holdings",
+    "hidden": false
+  },
+  {
+    "key": "client-wise-holdings",
+    "name": "Client Wise Holdings",
+    "icon": "holdings",
+    "children": [],
+    "roles": [],
+    "inst": [],
+    "link_to": "/main/client-wise-holdings",
+    "hidden": false
+  },
+  {
+    "key": "trade-orders",
+    "name": "TradeOrders",
+    "icon": "trade-orders",
+    "children": [],
+    "roles": [],
+    "inst": [],
+    "link_to": "/main/trade-orders",
+    "hidden": false
+  }
+]

@@ -1,0 +1,54 @@
+@use "./variables.module.scss" as *;
+
+.main_wrapper {
+  height: 100vh !important;
+  overflow: hidden;
+}
+
+.main_layout {
+  height: calc(100vh - 14px);
+  border-radius: 8px;
+  border: 1px solid #E3E3E3;
+}
+
+.backgroundclass {
+  background-color: $mainBackground;
+}
+
+.content_container {
+  @include padding($all: 24px);
+  height: calc(100vh - 69px);
+  overflow-y: scroll;
+  @include scroll_hover;
+}
+
+.full_page_container{
+  overflow: auto;
+  height: 100%;
+}
+
+.input_field_label_container {
+  @include margin($bottom: 8px);
+  &_text {
+    @include typography($weight: 5, $size: 14px, $color: $grey10);
+  }
+}
+
+.optional_text {
+  @include typography($color: $grey7);
+  @include margin($left: 6px);
+}
+
+.more_options {
+  @include flexbox(
+    $display: flex,
+    $alignItems: center,
+    $justifyContent: center
+  );
+  @include box(
+    $padding: 10px,
+    $height: fit-content,
+    $border: 1.5px solid #f0f0f0,
+    $margin: 0 auto
+  );
+}

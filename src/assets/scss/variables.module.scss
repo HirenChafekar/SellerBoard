@@ -1,0 +1,513 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+// fonts
+$font: "Inter", sans-serif;
+
+// colors
+$transparent: transparent;
+$white: #ffffff;
+$blue: #1463ff;
+$pink1: #f02f72;
+
+$grey2: #fcfcfc;
+$grey3: #f5f5f5;
+$grey4: #f0f0f0;
+$grey5: #d9d9d9;
+$grey6: #bfbfbf;
+$grey7: #7B8C9F;
+$grey8: #595959;
+$grey9: #454545;
+$grey10: #262626;
+
+$primary: $blue;
+$primary_hover: #40a9ff;
+$error: #EF4444;
+$primaryDark: #028fe8;
+$darkBlue: #2094de;
+$yellow: #ffa500;
+$warning: #ffc820;
+
+$green1: #E8F9F2;
+$green3: #9DE6C7;
+$green6: #1BC47D;
+$green7: #17A76A;
+
+$yellow6: #FFA305;
+
+$red1: #FDECEC;
+$red3: #F8AFAF;
+$red6: #EF4444;
+
+$secondary1: #F1E8FF;
+$secondary7: #6111D9;
+
+$warning: #FAAD14;
+
+$mainBackground: #F3F4F8;
+
+// postions
+$relative: relative;
+$absolute: absolute;
+$static: static;
+$fixed: fixed;
+$sticky: sticky;
+
+// cursor
+$pointer: pointer;
+$inherit: inherit;
+
+// aligns
+$left: left;
+$right: right;
+$center: center;
+
+// overflows
+$hidden: hidden;
+$scroll: scroll;
+
+// display
+$block: block;
+$flex: flex;
+$grid: grid;
+$none: none;
+
+// sizes
+$sizes: 0, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 24, 32, 36, 48, 60, 64;
+$bolds: 400, 500, 600, 700, 900;
+
+// media
+$breakpoints: (
+  xs: 576px,
+  sm: 768px,
+  md: 1024px,
+  lg: 1200px,
+);
+
+// functions
+@function calcRem($size) {
+  // $remSize: $size / 16px;
+  @return $size;
+}
+
+@function calcEm($size) {
+  $emSize: $size / 16px;
+  @return $emSize * 1em;
+}
+
+@function calcWeight($weight) {
+  @return $weight * 100;
+}
+
+// mixins
+@mixin typography(
+  $color: null,
+  $family: null,
+  $size: null,
+  $weight: null,
+  $style: normal,
+  $height: null,
+  $align: null,
+  $transform: null,
+  $opacity: null,
+  $letterSpacing: null
+) {
+  color: $color;
+  font-family: $family;
+  @if $size != null {
+    font-size: calcRem($size);
+  }
+  @if $weight != null {
+    font-weight: calcWeight($weight);
+  }
+  @if $height != null {
+    line-height: calcRem($height);
+  }
+  font-style: $style;
+  text-align: $align;
+  text-transform: $transform;
+  opacity: $opacity;
+  letter-spacing: $letterSpacing;
+}
+@mixin box(
+  $background: null,
+  $border: null,
+  $radius: null,
+  $color: null,
+  $display: null,
+  $margin: null,
+  $padding: null,
+  $shadow: null,
+  $width: null,
+  $height: null,
+  $alignContent: null,
+  $position: null,
+  $top: null,
+  $right: null,
+  $bottom: null,
+  $left: null,
+  $cursor: null,
+  $overflow: null,
+  $zIndex: null,
+  $opacity: null,
+  $outline: null,
+  $objectFit: null
+) {
+  background: $background;
+  border: $border;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  color: $color;
+  display: $display;
+  margin: $margin;
+  padding: $padding;
+  height: $height;
+  width: $width;
+  text-align: $alignContent;
+  cursor: $cursor;
+  overflow: $overflow;
+  z-index: $zIndex;
+  opacity: $opacity;
+  outline: $outline;
+  object-fit: $objectFit;
+  @if $position != null {
+    position: $position;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+  }
+}
+
+@mixin margin(
+  $all: null,
+  $top: null,
+  $right: null,
+  $bottom: null,
+  $left: null,
+  $rectangle: null
+) {
+  margin: $all;
+  margin-top: $top;
+  margin-right: $right;
+  margin-bottom: $bottom;
+  margin-left: $left;
+  margin: $rectangle;
+}
+
+@mixin padding(
+  $all: null,
+  $top: null,
+  $right: null,
+  $bottom: null,
+  $left: null,
+  $rectangle: null
+) {
+  padding: $all;
+  padding-top: $top;
+  padding-right: $right;
+  padding-bottom: $bottom;
+  padding-left: $left;
+  padding: $rectangle;
+}
+
+@mixin transition($property: all, $duration: 0.2s, $ease: ease-in-out) {
+  -webkit-transition: $property $duration $ease;
+  -moz-transition: $property $duration $ease;
+  -o-transition: $property $duration $ease;
+  transition: $property $duration $ease;
+}
+
+@each $size in $sizes {
+  .margin_#{$size} {
+    margin: #{$size}px;
+  }
+  .ml_#{$size} {
+    margin-left: #{$size}px;
+  }
+  .mr_#{$size} {
+    margin-right: #{$size}px;
+  }
+  .mt_#{$size} {
+    margin-top: #{$size}px;
+  }
+  .mb_#{$size} {
+    margin-bottom: #{$size}px;
+  }
+}
+@each $size in $sizes {
+  .padding_#{$size} {
+    padding: #{$size}px;
+  }
+  .pl_#{$size} {
+    padding-left: #{$size}px;
+  }
+  .pr_#{$size} {
+    padding-right: #{$size}px;
+  }
+  .pt_#{$size} {
+    padding-top: #{$size}px;
+  }
+  .pb_#{$size} {
+    padding-bottom: #{$size}px;
+  }
+}
+
+@each $size in $sizes {
+  .rounded_#{$size} {
+    border-radius: #{$size}px;
+  }
+}
+
+@each $bold in $bolds {
+  .bold_#{$bold} {
+    font-weight: #{$bold};
+  }
+}
+
+$colors: (
+  "black_1": #101010,
+  "black_2": #575656,
+  "black_3": #7a7b7b,
+  "primary": #2da7f5,
+  "white": #ffffff,
+  "danger": #f96161,
+  "green": #008000,
+);
+
+$weights: (
+  "light": 300,
+  "normal": 400,
+  "semibold": 500,
+  "bold": 700,
+  "extrabold": 900,
+);
+
+$fontSizes: (
+  "extrasm": calcRem(13px),
+  "sm": calcRem(14px),
+  "md": calcRem(16px),
+  "lg": calcRem(18px),
+  "extralg": calcRem(20px),
+);
+
+@each $prop, $color in $colors {
+  .color_#{$prop} {
+    color: $color;
+  }
+}
+@each $prop, $weight in $weights {
+  .fw_#{$prop} {
+    font-weight: $weight;
+  }
+}
+@each $prop, $fontSize in $fontSizes {
+  .fs_#{$prop} {
+    font-size: $fontSize;
+    line-height: $fontSize * 1.618;
+  }
+}
+
+@mixin flexbox(
+  $display: null,
+  $direction: null,
+  $wrap: null,
+  $flow: null,
+  $justifyContent: null,
+  $justifyItems: null,
+  $justifySelf: null,
+  $alignItems: null,
+  $alignContent: null,
+  $alignSelf: null,
+  $columnGap: null,
+  $rowGap: null,
+  $grow: null,
+  $order: null,
+  $shrink: null,
+  $basis: null,
+  $gridGap: null,
+) {
+  display: $display;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  flex-flow: $flow;
+  justify-content: $justifyContent;
+  justify-self: $justifySelf;
+  justify-items: $justifyItems;
+  align-items: $alignItems;
+  align-content: $alignContent;
+  align-self: $alignSelf;
+  column-gap: $columnGap;
+  row-gap: $rowGap;
+  flex-basis: $basis;
+  flex-shrink: $shrink;
+  flex-grow: $grow;
+  order: $order;
+  gap: $gridGap;
+}
+
+@mixin gridbox(
+  $display: null,
+  $template: null,
+  $justifyContent: null,
+  $alignItems: null,
+  $gap: null,
+  $justifySelf: null,
+  $alignSelf: null,
+  $autoRow: null,
+  $rowGap: null,
+  $columnGap: null,
+  $justifyItems: null
+) {
+  display: $display;
+  grid-template-columns: $template;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+  gap: $gap;
+  grid-row-gap: $rowGap;
+  justify-self: $justifySelf;
+  align-self: $alignSelf;
+  grid-auto-rows: $autoRow;
+  justify-items: $justifyItems;
+  grid-column-gap: $columnGap;
+}
+
+@mixin media-breakpoint-above($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+  } @else {
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+@mixin media-breakpoint-below($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    @media (max-width: ($breakpoint-value)) {
+      @content;
+    }
+  } @else {
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+@mixin media-breakpoint-between($lower, $upper) {
+  @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+    $lower-breakpoint: map-get($breakpoints, $lower);
+    $upper-breakpoint: map-get($breakpoints, $upper);
+    @media (min-width: ($lower-breakpoint + 1)) and (max-width: ($upper-breakpoint)) {
+      @content;
+    }
+  } @else {
+    @if (map-has-key($breakpoints, $lower) == false) {
+      @warn 'Your lower breakpoint was invalid: #{$lower}.';
+    }
+    @if (map-has-key($breakpoints, $upper) == false) {
+      @warn 'Your upper breakpoint was invalid: #{$upper}.';
+    }
+  }
+}
+
+@mixin line-clamp($line) {
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin media($width: null, $height: null, $objectFit: null, $cursor: null) {
+  width: $width;
+  height: $height;
+  object-fit: $objectFit;
+  cursor: $cursor;
+}
+
+@mixin scroll_hover {
+	&::-webkit-scrollbar-thumb {
+        visibility: hidden;
+		@include transition;
+    }
+	&:hover::-webkit-scrollbar-thumb {
+        visibility: visible;
+		@include transition;
+	}
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  @include transition;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  overflow-x: $hidden;
+}
+
+body {
+  font-family: $font !important;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 148%;
+  color: $grey9;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  position: $relative;
+  overflow-x: clip;
+  margin: 0px;
+  padding: 0px;
+  height: auto;
+  width: 100%;
+  background-color: $mainBackground;
+  @include transition;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+a,
+p {
+  margin: 0;
+  padding: 0;
+}
+ol,
+ul {
+  list-style: none;
+}
+
+.cardMargin {
+  @include margin($left: 3px, $right: 3px);
+}
+.cardPadding {
+  @include padding($left: 3px, $right: 3px);
+}
+.cardRounded {
+  border-radius: 3px;
+}
+.cardRoundedTop {
+  border-radius: 3px 3px 0px 0px;
+}
+.cardRoundedBottom {
+  border-radius: 0px 0px 3px 3px;
+}
+.transition2 {
+  transition: 0.25s cubic-bezier(0.33, 0.04, 0.63, 0.93),
+    -webkit-transform 0.25s cubic-bezier(0.33, 0.04, 0.63, 0.93),
+    -o-transform 0.25s cubic-bezier(0.33, 0.04, 0.63, 0.93);
+}
+
+.card_border {
+  @include box($radius: 6px, $border: 1px solid #E4E9F1);
+}

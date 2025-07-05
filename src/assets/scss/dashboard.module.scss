@@ -1,0 +1,28 @@
+@use "./variables.module.scss" as *;
+@use "./main_content.module.scss" as *;
+@use "./global.scss" as *;
+
+.graph_ {
+  &container {
+    @include margin($top: 24px);
+    @include box($border: 1px solid #f0f0f0, $radius: 6px, $padding: 16px);
+    width: 100%;
+  }
+
+  &top_bar {
+    @include flexbox(
+      $display: flex,
+      $alignItems: center,
+      $justifyContent: space-between
+    );
+  }
+
+  &title {
+    color: #8c8c8c;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    font-style: normal;
+    letter-spacing: -0.28px;
+  }
+}
