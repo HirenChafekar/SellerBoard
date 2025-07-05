@@ -4,8 +4,10 @@ import { NavigationAndTitleWrapper } from "../../../components/NavigationAndTitl
 import SVGComponent from "../../../utilts/Svgs";
 import { FtuxBlock } from "../../../components/FtuxBlock";
 import amazonIcon from "../../../assets/images/amazon_icon.png";
+import { useWatchlist } from "../hooks/watchList";
 
 export const Watchlist = () => {
+  const { functions } = useWatchlist();
   return (
     <div className={styles.common_main_layout}>
       <div className={styles.common_top_layout}>
@@ -28,7 +30,7 @@ export const Watchlist = () => {
           title="Let’s get you started"
           desc="To begin, connect your Amazon account. We will fetch the details of your listings and help you optimize your keywords."
           btnRender={
-            <Button type="primary" className={styles.common_btn_primary}>
+            <Button type="primary" className={styles.common_btn_primary} onClick={() => functions.navigate("./create")}>
               <SVGComponent src="plus" color="#ffffff" />
               <span>Connect Account</span>
             </Button>

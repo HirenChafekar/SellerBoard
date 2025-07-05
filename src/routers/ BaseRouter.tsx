@@ -1,10 +1,10 @@
 import React, { JSX } from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 import Login from "../pages/login/Login.tsx";
 import Organization from "../pages/organization/index.tsx";
 import { Home } from "../pages/home/screens/Home.tsx";
 import { Watchlist } from "../pages/watchlist/screens/Watchlist.js";
-
+import { WatchlistCreate } from "../pages/watchlist/screens/WatchListCreate.js";
 
 interface IProtectedProps {
   children: JSX.Element;
@@ -34,8 +34,11 @@ export default function BaseRouter() {
           </RequireAuth>
         }
       >
-        <Route path="home" element={<Home />} />
-        <Route path="watchlist" element={<Watchlist />} />
+        <Route index path="home" element={<Home />} />
+        <Route path="watchlist" element={<Outlet />}>
+          <Route index element={<Watchlist />} />
+          <Route path="create" element={<WatchlistCreate />} />
+        </Route>
       </Route>
     </Routes>
   );

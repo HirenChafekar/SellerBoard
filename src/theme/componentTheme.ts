@@ -53,6 +53,10 @@ interface componentTheme {
   InputNumber: {
     controlHeight: number;
   };
+  Tabs: {
+    itemColor: string;
+    itemActiveColor: string;
+  };
 }
 
 export const componentTheme: componentTheme = {
@@ -109,5 +113,9 @@ export const componentTheme: componentTheme = {
   },
   InputNumber: {
     controlHeight: 40,
+  },
+  Tabs: {
+    itemColor: "#7B8C9F",
+    itemActiveColor: "#7F56D9",
   },
 };

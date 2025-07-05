@@ -1,0 +1,26 @@
+.common_tabs .ant-tabs-tab div{
+  font-family: Inter;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  color: #7b8c9f !important;
+}
+
+.common_tabs .ant-tabs-tab-active div{
+  color: #7f56d9 !important;
+}
+
+.common_tabs.ant-tabs-top > .ant-tabs-nav::before{
+  border-bottom: 1px solid #E4E9F1 !important;
+}
+
+.common_tabs .ant-tabs-ink-bar {
+  background-color: #7f56d9 !important;
+}
+
+.common_tabs .ant-tabs-nav[role="tablist"] {
+  margin-bottom: 24px !important;
+}
