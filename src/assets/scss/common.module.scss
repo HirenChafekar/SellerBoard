@@ -3,6 +3,10 @@
 @use "./global.scss" as *;
 
 .common_ {
+  &main_layout {
+    @include flexbox($display: flex, $direction: column);
+    @include box($height : 100%);
+  }
   &top_layout {
     @include flexbox($display: flex, $justifyContent: space-between);
   }

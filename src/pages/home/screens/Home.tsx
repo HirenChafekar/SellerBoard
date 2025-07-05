@@ -8,7 +8,7 @@ import amazonIcon from "../../../assets/images/amazon_icon.png";
 
 export const Home = () => {
   return (
-    <div>
+    <div className={styles.common_main_layout}>
       <div className={styles.common_top_layout}>
         <NavigationAndTitleWrapper
           title="Welcome back, Yash"

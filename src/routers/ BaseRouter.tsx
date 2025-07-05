@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import Login from "../pages/login/Login.tsx";
 import Organization from "../pages/organization/index.tsx";
 import { Home } from "../pages/home/screens/Home.tsx";
+import { Watchlist } from "../pages/watchlist/screens/Watchlist.js";
 
 
 interface IProtectedProps {
@@ -34,6 +35,7 @@ export default function BaseRouter() {
         }
       >
         <Route path="home" element={<Home />} />
+        <Route path="watchlist" element={<Watchlist />} />
       </Route>
     </Routes>
   );
