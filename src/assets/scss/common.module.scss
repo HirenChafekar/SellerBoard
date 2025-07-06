@@ -70,4 +70,8 @@
     }
     }
   }
+
+  &form_row {
+    @include flexbox($display: flex, $alignItems: center, $columnGap: 16px);
+  }
 }
