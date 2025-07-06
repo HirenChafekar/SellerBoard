@@ -28,7 +28,7 @@
 
   &title {
     @include typography(
-      $color: #061123,
+      $color: $black2,
       $align: center,
       $size: 24px,
       $weight: 4,

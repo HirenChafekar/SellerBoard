@@ -5,7 +5,7 @@
 .common_ {
   &main_layout {
     @include flexbox($display: flex, $direction: column);
-    @include box($height : 100%);
+    @include box($height: 100%);
   }
   &top_layout {
     @include flexbox($display: flex, $justifyContent: space-between);
@@ -47,31 +47,60 @@
     padding: 32px 0;
     &_content {
       @include flexbox(
-      $display: flex,
-      $direction: column,
-      $alignItems: center,
-      $rowGap: 10px
-    );
-    &_title {
-      @include typography(
-        $color: $black1,
-        $size: 18px,
-        $weight: 6,
-        $height: 218x
+        $display: flex,
+        $direction: column,
+        $alignItems: center,
+        $rowGap: 10px
       );
-    }
+      &_title {
+        @include typography(
+          $color: $black1,
+          $size: 18px,
+          $weight: 6,
+          $height: 218x
+        );
+      }
       &_desc {
-      @include typography(
-        $color: $grey9,
-        $size: 16px,
-        $weight: 4,
-        $height: 22.4px
-      );
-    }
+        @include typography(
+          $color: $grey9,
+          $size: 16px,
+          $weight: 4,
+          $height: 22.4px
+        );
+      }
     }
   }
 
   &form_row {
     @include flexbox($display: flex, $alignItems: center, $columnGap: 16px);
+  }
+
+  &text_ {
+    &title {
+      @include typography(
+        $color: $black2,
+        $size: 16px,
+        $weight: 6,
+        $height: 22.4px
+      );
+    }
+    &desc {
+      @include typography(
+        $color: $grey6,
+        $size: 14px,
+        $weight: 4,
+        $height: 22.4px
+      );
+    }
+  }
+  &collapse {
+    &_children {
+      @include box(
+        $border: 1px solid #dde4ee,
+        $radius: 12px,
+        $padding: 24px,
+        $background: #ffffff
+      );
+    }
   }
 }

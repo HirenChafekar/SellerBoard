@@ -1,0 +1,15 @@
+@use "./variables.module.scss" as *;
+@use "./main_content.module.scss" as *;
+@use "./global.scss" as *;
+
+.keywords_analysis_ {
+    &steps {
+        @include typography(
+            $color: $grey8,
+            $size: 14px,
+            $weight: 4,
+            $height: 14px
+        );
+        @include margin($top: 10px);
+    }
+}

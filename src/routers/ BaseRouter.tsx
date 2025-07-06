@@ -5,6 +5,8 @@ import Organization from "../pages/organization/index.tsx";
 import { Home } from "../pages/home/screens/Home.tsx";
 import { Watchlist } from "../pages/watchlist/screens/Watchlist.js";
 import { WatchlistCreate } from "../pages/watchlist/screens/WatchListCreate.js";
+import { KeywordAnalysis } from "../pages/keyword-analysis/screens/KeywordAnalysis.js";
+import { KeywordAnalysisCreate } from "../pages/keyword-analysis/screens/KeywordAnalysisCreate.js";
 
 interface IProtectedProps {
   children: JSX.Element;
@@ -38,6 +40,11 @@ export default function BaseRouter() {
         <Route path="watchlist" element={<Outlet />}>
           <Route index element={<Watchlist />} />
           <Route path="create" element={<WatchlistCreate />} />
+        </Route>
+
+        <Route path="keyword-analysis" element={<Outlet />}>
+          <Route index element={<KeywordAnalysis />} />
+          <Route path="create" element={<KeywordAnalysisCreate />} />
         </Route>
       </Route>
     </Routes>

@@ -24,7 +24,8 @@
 
 .full_page_container{
   overflow: auto;
-  height: 100%;
+  height: calc(100vh - 66px);
+
 }
 
 .input_field_label_container {
