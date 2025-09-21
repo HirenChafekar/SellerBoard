@@ -101,6 +101,24 @@ export const useHome = () => {
     },
   ];
 
+   const cardsArr = [
+    {
+      title: "Total Sales",
+      value: 2420,
+      diff: 40,
+      graphData: [100, 200, 300, 400],
+    },
+    {
+      title: "Units Sold",
+      value: 1210,
+      diff: -10,
+      graphData: [400, 300, 200, 100],
+    }, // ⬇️ negative trend
+    { title: "TACOS", value: 2420, diff: 40, graphData: [50, 80, 60, 120] },
+    { title: "ACOS", value: 2420, diff: 40, graphData: [200, 180, 220, 260] },
+    { title: "ROAS", value: 2420, diff: 40, graphData: [150, 250, 200, 300] },
+  ];
+
   const onRangeChange = (
     dates: null | (Dayjs | null)[],
     dateStrings: string[]
@@ -145,7 +163,8 @@ export const useHome = () => {
       endTimestamp,
       segmentValue,
       segmentOptions,
-      statsData
+      statsData,
+      cardsArr
     },
     functions: { disabledDate, setSegmentValue, segmentChange, dateRangeChange },
   };

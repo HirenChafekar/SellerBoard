@@ -47,8 +47,7 @@
       $background: $white,
       $radius: 10px,
       $padding: 16px,
-      $width: 100%,
-      $maxWidth: 204px
+      $width: 100%
     );
     &_header {
       @include flexbox(

@@ -418,6 +418,23 @@ const SVGS: SVGDictionary = {
       />
     </svg>
   ),
+  backcarat: (color: string) => (
+    <svg
+      width="18"
+      height="19"
+      viewBox="0 0 18 19"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M11.5312 4.4375L6.46875 9.5L11.5312 14.5625"
+        stroke={color}
+        stroke-width="1.875"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  ),
 };
 
 const SVGComponent: FC<Props> = ({ src, color, height, width }) => {
