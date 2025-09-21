@@ -38,3 +38,132 @@
     }
   }
 }
+
+.grids {
+  @include margin($top: 24px);
+  @include flexbox($display: flex, $alignItems: center, $columnGap: 12px);
+  &_indi {
+    @include box(
+      $background: $white,
+      $radius: 10px,
+      $padding: 16px,
+      $width: 100%,
+      $maxWidth: 204px
+    );
+    &_header {
+      @include flexbox(
+        $display: flex,
+        $alignItems: center,
+        $justifyContent: space-between
+      );
+      > span {
+        @include typography(
+          $color: $black1,
+          $weight: 5,
+          $size: 12px,
+          $height: 150%
+        );
+      }
+    }
+    &_body {
+      @include flexbox($display: flex, $alignItems: flex-end, $columnGap: 8px, $justifyContent: space-between);
+      > span {
+        display: flex;
+        align-items: flex-end;
+      }
+    }
+    &_value {
+      @include typography(
+        $color: $black1,
+        $weight: 6,
+        $size: 22px,
+        $height: 100%
+      );
+      @include margin($top: 12px);
+    }
+    &_diff {
+      @include flexbox($display: flex, $alignItems: center, $columnGap: 2px);
+      @include margin($top: 12px);
+      > svg {
+        @include flexbox(
+          $display: flex,
+          $alignItems: center,
+          $justifyContent: center
+        );
+      }
+      > span {
+        @include typography($weight: 5, $size: 10px, $height: 150%);
+      }
+    }
+    &_last_month_text {
+      @include typography(
+        $color: $grey9,
+        $weight: 5,
+        $size: 10px,
+        $height: 100%
+      );
+      @include margin($top: 2px);
+    }
+  }
+}
+
+.main_box {
+  @include margin($top: 24px);
+  @include box($background: $white);
+}
+
+.graphinfo_{
+  &container {
+    @include box($padding: 16px);
+  }
+  &header {
+    @include flexbox($display: flex, $alignItems: center, $justifyContent: space-between);
+    >span {
+      @include typography($weight: 5, $size: 14px, $height: 100%, $color: $grey10);
+    }
+  }
+  &blocks {
+      @include flexbox(
+        $display: flex,
+        $direction: row,
+        $alignItems: center,
+        $columnGap: 16px
+      );
+      @include typography($size: 12px);
+      padding: 10px;
+      margin: 15px 0;
+      @include box($background: #e8efff94, $radius: 8px);
+    }
+
+    &block {
+      width: 100%;
+      height: 60px;
+      padding: 0 12px;
+      @include box($background: #fff, $radius: 5px);
+      @include flexbox(
+        $display: flex,
+        $direction: row,
+        $alignItems: center,
+        $columnGap: 8px
+      );
+      &_icon {
+        padding: 10px;
+        @include box($radius: 4px);
+        @include flexbox(
+          $display: flex,
+          $direction: row,
+          $alignItems: center,
+          $justifyContent: center
+        );
+      }
+      &_text {
+        @include flexbox($display: flex, $direction: column, $rowGap: 2px);
+        &_title {
+          @include typography($size: 13px, $weight: 5);
+        }
+        &_number {
+          @include typography($size: 13px, $color: #8c8c8c);
+        }
+      }
+    }
+}

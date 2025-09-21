@@ -1,12 +1,36 @@
 import { NavigationAndTitleWrapper } from "../../../components/NavigationAndTitleWrapper";
 import styles from "../../../assets/scss/common.module.scss";
 import styles1 from "../../../assets/scss/home.module.scss";
-import { Button } from "antd";
-import SVGComponent from "../../../utilts/Svgs";
-import { FtuxBlock } from "../../../components/FtuxBlock";
-import amazonIcon from "../../../assets/images/amazon_icon.png";
+import { CardWithGraph } from "../components/CardWithGraph";
+import { GrpahInfo } from "../components/GrpahInfo";
+import { DatePicker } from "antd";
+import { useHome } from "../hooks/home";
+import { DATE_FORMAT } from "../../../utilts/constant";
+import dayjs from "dayjs";
+import { getDateFromDateString } from "../../../utilts/timeUtils";
+import { TopPerformingProducts } from "../components/TopPerformingProducts";
 
 export const Home = () => {
+  const { values, functions } = useHome();
+  const { RangePicker} = DatePicker;
+  const arr = [
+    {
+      title: "Total Sales",
+      value: 2420,
+      diff: 40,
+      graphData: [100, 200, 300, 400],
+    },
+    {
+      title: "Units Sold",
+      value: 1210,
+      diff: -10,
+      graphData: [400, 300, 200, 100],
+    }, // ⬇️ negative trend
+    { title: "TACOS", value: 2420, diff: 40, graphData: [50, 80, 60, 120] },
+    { title: "ACOS", value: 2420, diff: 40, graphData: [200, 180, 220, 260] },
+    { title: "ROAS", value: 2420, diff: 40, graphData: [150, 250, 200, 300] },
+  ];
+
   return (
     <div className={styles.common_main_layout}>
       <div className={styles.common_top_layout}>
@@ -14,49 +38,35 @@ export const Home = () => {
           title="Welcome back, Yash"
           description="Track, manage and forecast your customers and orders."
         />
-
-        <div className={styles.common_btn_container}>
-          <Button className={styles.common_btn}>
-            <SVGComponent src="upload_cloud" color="#414651" />
-            <span>Import</span>
-          </Button>
-          <Button type="primary" className={styles.common_btn_primary}>
-            <SVGComponent src="plus" color="#ffffff" />
-            <span>Add</span>
-          </Button>
-        </div>
       </div>
 
-      <div className={styles1.home_add_billing_profile}>
-        <div className={styles1.home_add_billing_profile_left}>
-          <span className={styles1.home_add_billing_profile_title}>
-            Add Billing Profile Details
-          </span>
-          <span className={styles1.home_add_billing_profile_desc}>
-            Please complete or select a billing profile for your account. This
-            is not impacting your advertising. If you have any questions please
-            reach out to chat support.
-          </span>
-        </div>
-        <Button className={styles.common_btn}>
-          <SVGComponent src="bookmark" color="#414651" />
-          <span>Add Details</span>
-        </Button>
+      <div className={styles1.grids}>
+        {arr.map((item, index) => (
+          <CardWithGraph item={item} index={index} />
+        ))}
       </div>
 
-      <div style={{ marginTop: 32 }}>
-        <FtuxBlock
-          icon={<img src={amazonIcon} />}
-          title="Let’s get you started"
-          desc="To begin, connect your Amazon account. We will fetch the details of your listings and help you optimize your keywords."
-          btnRender={
-            <Button type="primary" className={styles.common_btn_primary}>
-              <SVGComponent src="plus" color="#ffffff" />
-              <span>Connect Account</span>
-            </Button>
-          }
+      <div className={styles1.main_box}>
+        <GrpahInfo
+          title={"Ads Performance"}
+          segmentOptions={values.segmentOptions}
+          segmentValue={values.segmentValue}
+          segmentChange={functions.segmentChange}
+          rangePresets={values.rangePresets}
+          disabledDate={functions.disabledDate}
+          startTimestamp={values.startTimestamp}
+          endTimestamp={values.endTimestamp}
+          dateRangeChange={functions.dateRangeChange}
+          showStats={true}
+          statsData={values.statsData}
         />
       </div>
+
+      <div className={styles1.main_box}>
+        <TopPerformingProducts />
+      </div>
+
+      <div className=""></div>
     </div>
   );
 };

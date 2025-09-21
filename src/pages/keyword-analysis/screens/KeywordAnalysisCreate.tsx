@@ -30,8 +30,13 @@ export const KeywordAnalysisCreate = () => {
         </p>
 
         {values.step === 1 && (
-          <FirstForm values={values} functions={functions} />
+          <FirstForm step={values.step} setStep={functions.setStep} />
         )}
+
+        {values.step === 2 && <p>Step 2</p>}
+        {values.step === 3 && <p>Step 3</p>}
+        {values.step === 4 && <p>Step 4</p>}
+        {values.step === 5 && <p>Step 5</p>}
       </div>
     </div>
   );

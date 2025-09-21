@@ -104,3 +104,7 @@
     }
   }
 }
+
+.flex {
+  @include flexbox($display: flex, $alignItems: center);
+}

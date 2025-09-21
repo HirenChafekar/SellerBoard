@@ -1,9 +1,11 @@
 import { Button, Collapse, CollapseProps, Form, Input } from "antd";
 import styles from "../../../assets/scss/common.module.scss";
-import styles1 from "../../../assets/scss/keywordanalysis.module.scss";
 import { FieldLabel } from "../../../components/FieldLabel";
+import { useKeywordFirstForm } from "../hooks/keywordFirstForm";
 
-export const FirstForm = ({ values, functions }) => {
+export const FirstForm = ({ step, setStep }) => {
+  const { values, functions } = useKeywordFirstForm({ step, setStep });
+
   const items: CollapseProps["items"] = [
     {
       key: "1",

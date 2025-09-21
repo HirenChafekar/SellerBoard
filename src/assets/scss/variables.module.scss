@@ -20,6 +20,8 @@ $grey8: #808080;
 $grey9: #535862;
 $grey10: #262626;
 $grey11: #414651;
+$grey12: #A3A7B0;
+$grey13: #F4F6FE;
 
 $black1: #181D27;
 $black2: #061123;
@@ -145,6 +147,8 @@ $breakpoints: (
   $padding: null,
   $shadow: null,
   $width: null,
+  $minWidth: null,
+  $maxWidth: null,
   $height: null,
   $alignContent: null,
   $position: null,
@@ -169,6 +173,8 @@ $breakpoints: (
   padding: $padding;
   height: $height;
   width: $width;
+  min-width: $minWidth;
+  max-width: $maxWidth;
   text-align: $alignContent;
   cursor: $cursor;
   overflow: $overflow;

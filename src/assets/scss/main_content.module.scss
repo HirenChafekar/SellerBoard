@@ -8,6 +8,7 @@
 .main_layout {
   @include padding($all: 32px, $bottom: 0);
   height: 100%;
+  background-color: $grey13;
   
 }
 
