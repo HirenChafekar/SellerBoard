@@ -7,6 +7,7 @@ import { Watchlist } from "../pages/watchlist/screens/Watchlist.js";
 import { WatchlistCreate } from "../pages/watchlist/screens/WatchListCreate.js";
 import { KeywordAnalysis } from "../pages/keyword-analysis/screens/KeywordAnalysis.js";
 import { KeywordAnalysisCreate } from "../pages/keyword-analysis/screens/KeywordAnalysisCreate.js";
+import OrderAnalytics from "../pages/analytics/order-analytics/screens/OrderAnalytics";
 
 interface IProtectedProps {
   children: JSX.Element;
@@ -37,6 +38,7 @@ export default function BaseRouter() {
         }
       >
         <Route index path="home" element={<Home />} />
+        
         <Route path="watchlist" element={<Outlet />}>
           <Route index element={<Watchlist />} />
           <Route path="create" element={<WatchlistCreate />} />
@@ -45,6 +47,11 @@ export default function BaseRouter() {
         <Route path="keyword-analysis" element={<Outlet />}>
           <Route index element={<KeywordAnalysis />} />
           <Route path="create" element={<KeywordAnalysisCreate />} />
+        </Route>
+
+        {/* Analytics Parent Route */}
+        <Route path="analytics" element={<Outlet />}>
+          <Route path="order-analytics" element={<OrderAnalytics />} />
         </Route>
       </Route>
     </Routes>
