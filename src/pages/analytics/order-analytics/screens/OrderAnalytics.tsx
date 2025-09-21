@@ -8,6 +8,7 @@ import { GrpahInfo } from "../../../home/components/GrpahInfo";
 import { TopPerformingProducts } from "../../../home/components/TopPerformingProducts";
 import { Flex } from "antd";
 import HeatMap from "../../../../components/HeatMap";
+import GeographicalDistribution from "../../../../components/GeographicalDistribution";
 
 const OrderAnalytics: React.FC = () => {
   const { values, functions } = useOrderAnalytics();
@@ -44,8 +45,12 @@ const OrderAnalytics: React.FC = () => {
       </div>
 
       <Flex gap={24} style={{ width: "100%" }}>
-        <div className={styles1.main_box} style={{ width: "100%" }}>hiren</div>
-        <div className={styles1.main_box} style={{ width: "100%" }}><HeatMap title={"Hourly Order Distribution"} /></div>
+        <div className={styles1.main_box} style={{ width: "100%" }}>
+          <GeographicalDistribution title="Geographical Distribution" />
+        </div>
+        <div className={styles1.main_box} style={{ width: "100%" }}>
+          <HeatMap title={"Hourly Order Distribution"} />
+        </div>
       </Flex>
     </div>
   );
