@@ -13,7 +13,7 @@ export const Home = () => {
     <div className={styles.common_main_layout}>
       <div className={styles.common_top_layout}>
         <NavigationAndTitleWrapper
-          title="Welcome back, Yash."
+          title="Welcome back, Yash"
           description="Track, manage and forecast your customers and orders."
         />
       </div>

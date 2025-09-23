@@ -1,13 +1,14 @@
 import React, { JSX } from "react";
 import { Navigate, Outlet, Route, Routes } from "react-router-dom";
-import Login from "../pages/login/Login.tsx";
-import Organization from "../pages/organization/index.tsx";
-import { Home } from "../pages/home/screens/Home.tsx";
 import { Watchlist } from "../pages/watchlist/screens/Watchlist.js";
 import { WatchlistCreate } from "../pages/watchlist/screens/WatchListCreate.js";
 import { KeywordAnalysis } from "../pages/keyword-analysis/screens/KeywordAnalysis.js";
 import { KeywordAnalysisCreate } from "../pages/keyword-analysis/screens/KeywordAnalysisCreate.js";
 import OrderAnalytics from "../pages/analytics/order-analytics/screens/OrderAnalytics";
+import AdsAnalytics from "../pages/analytics/ads-analytics/screens/AdsAnalytics.js";
+import { Home } from "../pages/home/screens/Home.js";
+import Organization from "../pages/organization/index.js";
+import Login from "../pages/login/Login.js";
 
 interface IProtectedProps {
   children: JSX.Element;
@@ -52,6 +53,7 @@ export default function BaseRouter() {
         {/* Analytics Parent Route */}
         <Route path="analytics" element={<Outlet />}>
           <Route path="order-analytics" element={<OrderAnalytics />} />
+          <Route path="ads-analytics" element={<AdsAnalytics />} />
         </Route>
       </Route>
     </Routes>
