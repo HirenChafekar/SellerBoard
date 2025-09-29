@@ -13,15 +13,7 @@ const useAdsAnalytics = () => {
     searchParams.get("endTimeStamp") ||
       dayjs().subtract(1, "days").endOf("day").format()
   );
-  const [segmentValue, setSegmentValue] = useState(
-    searchParams.get("segment") || "orders"
-  );
 
-  const segmentOptions = [
-    { label: "Orders", value: "orders" },
-    { label: "Cancellations", value: "cancellations" },
-    { label: "Returns", value: "returns" },
-  ];
   const rangePresets = [
     {
       label: "Yesterday",
@@ -58,30 +50,64 @@ const useAdsAnalytics = () => {
 
   const cardsArr = [
     {
+      title: "Total Ad Spend",
+      value: 2420,
+      diff: 40,
+    },
+    {
+      title: "ACOS (%)",
+      value: 1210,
+      diff: -10,
+    }, // ⬇️ negative trend
+    {
+      title: "TACOS",
+      value: 2420,
+      diff: 40,
+    },
+    {
+      title: "ROAS",
+      value: 2420,
+      diff: 40,
+    },
+     {
+      title: "Impressions",
+      value: 2420,
+      diff: 40,
+    },
+    {
+      title: "Clicks",
+      value: 2420,
+      diff: 40,
+    },
+    {
+      title: "CTR",
+      value: 1210,
+      diff: -10,
+    },
+    {
+      title: "CPC",
+      value: 2420,
+      diff: 40,
+    },
+    {
+      title: "CPM",
+      value: 2420,
+      diff: 40,
+    },
+     {
       title: "Total Orders",
       value: 2420,
       diff: 40,
-      graphData: [100, 200, 300, 400],
-    },
-    {
-      title: "ADV",
-      value: 1210,
-      diff: -10,
-      graphData: [400, 300, 200, 100],
-    }, // ⬇️ negative trend
-    {
-      title: "Refund Rate",
-      value: 2420,
-      diff: 40,
-      graphData: [50, 80, 60, 120],
-    },
-    {
-      title: "Cancellation Rate",
-      value: 2420,
-      diff: 40,
-      graphData: [200, 180, 220, 260],
     },
   ];
+
+  const selectionOptions = [
+    { label: "ACOS", value: "acos" },
+    { label: "TACOS", value: "tacos" },
+    { label: "ROAS", value: "roas" },
+  ];
+
+  const [selectedValue, setSelectedValue] = useState(selectionOptions[0].value);
 
   const onRangeChange = (
     dates: null | (Dayjs | null)[],
@@ -112,10 +138,6 @@ const useAdsAnalytics = () => {
     return current && current >= dayjs().subtract(1, "days").endOf("day");
   };
 
-  const segmentChange = (value: string) => {
-    setSegmentValue(value);
-  };
-
   const dateRangeChange = (
     dates: null | (Dayjs | null)[],
     dateStrings: string[]
@@ -128,17 +150,16 @@ const useAdsAnalytics = () => {
       cardsArr,
       startTimestamp,
       endTimestamp,
-      segmentValue,
-      segmentOptions,
       rangePresets,
+      selectionOptions,
+      selectedValue
     },
     functions: {
       setStartTimestamp,
       setEndTimestamp,
-      setSegmentValue,
-      segmentChange,
       dateRangeChange,
       disabledDate,
+      setSelectedValue
     },
   };
 };

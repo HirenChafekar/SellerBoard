@@ -1,4 +1,4 @@
-import { DatePicker, Segmented } from "antd";
+import { DatePicker, Segmented, Select } from "antd";
 import styles1 from "../../../assets/scss/home.module.scss";
 import { DATE_FORMAT } from "../../../utilts/constant";
 import dayjs from "dayjs";
@@ -9,9 +9,9 @@ import * as echarts from "echarts";
 
 export const GrpahInfo = ({
   title,
-  segmentOptions,
-  segmentChange,
-  segmentValue,
+  segmentOptions = [],
+  segmentChange = (val) => {},
+  segmentValue = "orders",
   rangePresets,
   disabledDate,
   startTimestamp,
@@ -19,6 +19,18 @@ export const GrpahInfo = ({
   dateRangeChange,
   showStats = false,
   statsData = [],
+  showSegmented = true,
+  showSelection = false,
+  selectionOptions = [],
+  selectedValue = "",
+  setSelectedValue = (val) => {},
+  lineColor="#00C48C",
+  areaStyle={
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            { offset: 0, color: "rgba(0,196,140,0.25)" },
+            { offset: 1, color: "rgba(255,255,255,0)" },
+          ]),
+        },
 }) => {
   const { RangePicker } = DatePicker;
 
@@ -90,14 +102,9 @@ export const GrpahInfo = ({
         showSymbol: false, // ✅ no dots
         lineStyle: {
           width: 2,
-          color: "#00C48C",
+          color: lineColor,
         },
-        areaStyle: {
-          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-            { offset: 0, color: "rgba(0,196,140,0.25)" },
-            { offset: 1, color: "rgba(255,255,255,0)" },
-          ]),
-        },
+        areaStyle: areaStyle
       },
     ],
   };
@@ -107,12 +114,24 @@ export const GrpahInfo = ({
       <div className={styles1.graphinfo_header}>
         <span>{title}</span>
         <div>
-          <Segmented
-            options={segmentOptions}
-            onChange={segmentChange}
-            value={segmentValue}
-            className={styles1.graphinfo_segment}
-          />
+          {showSegmented ? (
+            <Segmented
+              options={segmentOptions}
+              onChange={segmentChange}
+              value={segmentValue}
+              className={styles1.graphinfo_segment}
+            />
+          ) : null}
+
+          {showSelection ? (
+            <Select
+              options={selectionOptions}
+              value={selectedValue}
+              onChange={(val) => setSelectedValue(val)}
+              style={{marginRight:12, width:120}}
+            />
+          ) : null}
+
           <RangePicker
             presets={rangePresets}
             onChange={dateRangeChange}

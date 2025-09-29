@@ -54,3 +54,43 @@
     $margin: 0 auto
   );
 }
+
+.bigger_cards {
+  @include box($background: $white, $padding: 20px, $radius: 14px);
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+  min-height: 110px;
+  justify-content: space-between;
+  margin: 8px 0;
+  .bigger_cards_title {
+    @include typography($weight: 5, $size: 15px, $color: $grey7);
+    margin-bottom: 8px;
+  }
+  .bigger_cards_value_row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+  }
+  .bigger_cards_value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $grey12;
+    margin-right: 12px;
+  }
+  .bigger_cards_growth {
+    display: flex;
+    align-items: center;
+    color: #4CAF50;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  .bigger_cards_growth_percent {
+    margin-left: 2px;
+  }
+  .bigger_cards_subtext {
+    font-size: 13px;
+    color: $grey8;
+    margin-top: 2px;
+  }
+}

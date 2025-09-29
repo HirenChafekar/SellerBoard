@@ -24,6 +24,7 @@ export default function Login() {
     { username: "test1@example.com", password: "password1" },
     { username: "test2@example.com", password: "password2" },
     { username: "admin@example.com", password: "admin123" },
+    { username: "hiren@gmail.com", password: "test" },
   ];
 
   const onFinish = (values: FieldType) => {
