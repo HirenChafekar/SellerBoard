@@ -1,0 +1,310 @@
+.product_analytics_table {
+  width: 100%;
+  margin-top: 20px;
+
+  .table_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #262626;
+    }
+
+    .export_btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+  }
+
+  .ant-table-wrapper {
+    width: 100%;
+    overflow-x: auto; // for large tables
+  }
+
+  .ant-table-thead > tr > th {
+    background-color: #f0f2f5;
+    color: #262626;
+    font-weight: 600;
+    text-align: left;
+  }
+
+  .ant-table-tbody > tr > td {
+    text-align: left;
+    padding: 12px 8px;
+  }
+}
+
+.product_analytics_layout {
+  padding: 20px;
+}
+
+.analytics_charts_wrapper {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Left: Funnel */
+.sales_funnel_container {
+  width: 100%;
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sales_funnel_header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.sales_funnel_title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.sales_funnel_actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #666;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.sales_funnel_chart {
+  height: 320px;
+  width: 100%; /* full width */
+  border-radius: 12px;
+  background-color: #f5f5f5;
+  padding: 10px;
+}
+
+
+/* Right: Placeholder for other chart (75% width) */
+
+
+.product_analytics_header {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(136, 97, 246, 0.06);
+  padding: 8px 12px;
+  width: 100%;
+}
+
+.product_card {
+  flex: 1 1 50%;
+  background: white;
+  border-radius: 14px 0 0 14px;
+  padding: 14px 20px 14px 22px;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.product_image {
+  width: 70px;
+  height: 85px;
+  background: #fff;
+  border-radius: 10px;
+  object-fit: contain;
+  margin-right: 16px;
+  box-shadow: 0 2px 8px rgba(80, 45, 194, 0.12);
+}
+
+.product_info {
+  position: relative;
+  background: white; /* Explicitly white background */
+  padding: 8px; /* Optional padding if needed */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 8px;
+  max-width: calc(100% - 90px);
+  z-index: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 38%;
+    height: 40%;
+    background: radial-gradient(ellipse 50% 60% at 85% 20%, rgba(167,134,246,0.23) 65%, transparent 100%);
+    border-top-right-radius: 14px;
+    pointer-events: none;
+    z-index: -1; /* Behind content and background */
+  }
+
+
+  > * {
+    position: relative;
+    z-index: 0;
+  }
+}
+
+.product_sku {
+  font-size: 12px;
+  color: #a7a7a7;
+  margin-bottom: 0;
+  font-weight: 400; /* lighter weight */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product_title {
+  font-size: 15px;
+  font-weight: 400; /* lighter font */
+  color: #19193a;
+  line-height: 1.3;
+  margin-bottom: 0;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.product_meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;  /* keep offers and prime semi-bold */
+}
+
+.product_price {
+  font-weight: 700;    /* strong weight for price */
+  color: #191919;
+  font-size: 15px;
+}
+
+.product_offers {
+  color: #3268ef;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  font-size: 13px;
+}
+
+.product_prime {
+  color: #1463ff;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 13px;
+}
+
+.stat_group {
+  flex: 1 1 50%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr;
+  gap: 8px 28px;                // Slightly reduced vertical gap
+  background: #fff;
+  border-radius: 0 14px 14px 0;
+  padding: 0px;  // Reduced padding top & bottom
+  box-shadow: 0 2px 8px rgba(136, 97, 246, 0.06);
+  align-items: stretch;         // stretch items vertically (same height as container)
+  min-height: auto;             // Let grow based on content & container
+  height: auto;
+}
+
+.analytics_stat {
+  text-align: left;
+  padding: 0px;    // Reduced padding inside stat blocks
+  border-right: 1px solid #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  &:nth-child(3n) {
+    border-right: none;
+  }
+  &:nth-child(n + 4) {
+    border-top: 0px dashed #e6e6e6;
+    margin-top: 0px;
+    padding-top: 0px;
+  }
+}
+
+.stat_label {
+  font-size: 13px;
+  color: #a5a5a5;
+  font-weight: 400; /* lighter font weight */
+  margin-bottom: 3px;
+}
+
+.stat_value {
+  font-size: 19px;
+  font-weight: 600;
+  color: #191919;
+  margin-bottom: 2px;
+}
+
+.stat_change {
+  color: #21ad7c;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.analytics_charts_wrapper {
+  margin-top: 20px;
+  display: flex;
+  gap: 44px;
+}
+
+.sales_funnel_container {
+  background: white;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.04);
+}
+
+.sales_funnel_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.sales_funnel_title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.sales_funnel_actions {
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.main_box {
+  background: white;
+  border-radius: 12px;
+  padding: 18px;
+  height: 100%;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.04);
+}
+
+

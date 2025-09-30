@@ -2,6 +2,7 @@ import { Tooltip } from "antd";
 import { Link } from "react-router-dom";
 import SVGComponent from "../utilts/Svgs";
 import styles from "../assets/scss/navigationandtitlewrapper.module.scss";
+import { JSX } from "react";
 interface NavigationAndTitleWrapperProps {
   title: string;
   showBackArrow?: boolean;

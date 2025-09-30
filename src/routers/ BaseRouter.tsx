@@ -9,6 +9,7 @@ import AdsAnalytics from "../pages/analytics/ads-analytics/screens/AdsAnalytics.
 import { Home } from "../pages/home/screens/Home.js";
 import Organization from "../pages/organization/index.js";
 import Login from "../pages/login/Login.js";
+import ProductAnalytics from "../pages/analytics/product-analytics/screens/ProductAnalytics.js";
 
 interface IProtectedProps {
   children: JSX.Element;
@@ -54,6 +55,7 @@ export default function BaseRouter() {
         <Route path="analytics" element={<Outlet />}>
           <Route path="order-analytics" element={<OrderAnalytics />} />
           <Route path="ads-analytics" element={<AdsAnalytics />} />
+          <Route path="product-analytics" element={<ProductAnalytics />} />
         </Route>
       </Route>
     </Routes>
