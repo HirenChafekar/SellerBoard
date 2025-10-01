@@ -9,7 +9,6 @@
   @include padding($all: 32px, $bottom: 0);
   height: 100%;
   background-color: $grey13;
-  
 }
 
 .backgroundclass {
@@ -23,10 +22,9 @@
   @include scroll_hover;
 }
 
-.full_page_container{
+.full_page_container {
   overflow: auto;
   height: calc(100vh - 66px);
-
 }
 
 .input_field_label_container {
@@ -56,41 +54,64 @@
 }
 
 .bigger_cards {
-  @include box($background: $white, $padding: 20px, $radius: 14px);
-  display: flex;
-  flex-direction: column;
-  min-width: 180px;
-  min-height: 110px;
-  justify-content: space-between;
-  margin: 8px 0;
-  .bigger_cards_title {
-    @include typography($weight: 5, $size: 15px, $color: $grey7);
-    margin-bottom: 8px;
+  @include flexbox($display: flex, $direction: column, $rowGap: 8px);
+  > span {
+    @include typography(
+      $weight: 5,
+      $size: 11px,
+      $height: 150%,
+      $color: $grey14
+    );
   }
-  .bigger_cards_value_row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 4px;
-  }
-  .bigger_cards_value {
-    font-size: 2rem;
-    font-weight: 700;
-    color: $grey12;
-    margin-right: 12px;
-  }
-  .bigger_cards_growth {
-    display: flex;
-    align-items: center;
-    color: #4CAF50;
-    font-weight: 600;
-    font-size: 1rem;
-  }
-  .bigger_cards_growth_percent {
-    margin-left: 2px;
-  }
-  .bigger_cards_subtext {
-    font-size: 13px;
-    color: $grey8;
-    margin-top: 2px;
+
+  &_content {
+    @include flexbox($display: flex, $alignItems: center, $columnGap: 12px);
+    > span {
+      @include typography(
+        $weight: 6,
+        $size: 22px,
+        $height: 100%,
+        $color: $black1
+      );
+    }
+
+    &_right {
+      @include flexbox($display: flex, $direction: column);
+
+      &_diff {
+        @include flexbox($display: flex, $alignItems: center, $columnGap: 4px);
+      }
+    }
   }
 }
+
+
+.grids {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* cards won’t shrink below 220px */
+  gap: 12px;
+  position: relative;
+}
+
+/* full-width border between rows */
+.grids > * {
+  position: relative;
+}
+
+// /* add a line below items that are not in the last row */
+// .grids > *::after {
+//   content: "";
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   bottom: -12px; /* aligns with gap */
+//   height: 1px;
+//   background: #e0e0e0;
+//   grid-column: 1 / -1; /* span entire row */
+// }
+
+/* remove border for items in the last row */
+.grids > *:nth-last-child(-n + 5)::after {
+  content: none;
+}
+

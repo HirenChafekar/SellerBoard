@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../../../../assets/scss/common.module.scss";
 import styles1 from "../../../../assets/scss/home.module.scss";
+import styles2 from "../../../../assets/scss/main_content.module.scss";
 import { Col, Flex } from "antd";
 import { NavigationAndTitleWrapper } from "../../../../components/NavigationAndTitleWrapper";
 import useAdsAnalytics from "../hooks/adsAnalytics";
@@ -8,6 +9,7 @@ import { GrpahInfo } from "../../../home/components/GrpahInfo";
 import * as echarts from "echarts";
 import { RevenueByCampaign } from "../components/RevenueByCampaign";
 import { CampaignPerformance } from "../components/CampaignPerformance";
+import { BiggerCards } from "../../../../components/BiggerCards";
 
 const OrderAnalytics: React.FC = () => {
   const { values, functions } = useAdsAnalytics();
@@ -18,11 +20,20 @@ const OrderAnalytics: React.FC = () => {
         showBackArrow
         redirectionPath="/sellerboard/home"
       />
-      {/* <div className={styles1.grids}>
+      <div
+        className={styles2.grids}
+        style={{
+          background: "white",
+          padding: 16,
+          flexWrap: "wrap",
+          marginTop: 24,
+          borderRadius: 10
+        }}
+      >
         {values.cardsArr.map((item, index) => (
           <BiggerCards item={item} key={index} />
         ))}
-      </div> */}
+      </div>
 
       <Flex gap={24}>
         <Col style={{ width: "30%" }}>

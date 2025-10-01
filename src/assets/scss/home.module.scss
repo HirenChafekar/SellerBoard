@@ -44,6 +44,7 @@
 .grids {
   @include margin($top: 24px);
   @include flexbox($display: flex, $alignItems: center, $columnGap: 12px);
+  @include box($radius: 10px);
   &_indi {
     @include box(
       $background: $white,
@@ -110,7 +111,7 @@
 
 .main_box {
   @include margin($top: 24px);
-  @include box($background: $white);
+  @include box($background: $white, $radius: 10px);
 }
 
 .graphinfo_{
