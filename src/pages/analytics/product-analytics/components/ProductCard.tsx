@@ -1,5 +1,6 @@
 import React from "react";
 import styles from '../../../../assets/scss/product-analytics.module.scss';
+import SVGComponent from "../../../../utilts/Svgs";
 
 type ProductCardProps = {
   image: string;
@@ -22,6 +23,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ image, title, sku, price, off
           <span className={styles.product_offers}>{offers}</span>
           {isPrime && <span className={styles.product_prime}>Prime</span>}
         </div>
+      </div>
+
+      <div className={styles.product_go_to_link} onClick={() => window.open("https://www.amazon.com/", "_blank")}>
+        <SVGComponent src="goToLink" color="#7F56D9" />
       </div>
     </div>
   );

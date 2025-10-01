@@ -10,6 +10,8 @@ import * as echarts from "echarts";
 import { RevenueByCampaign } from "../components/RevenueByCampaign";
 import { CampaignPerformance } from "../components/CampaignPerformance";
 import { BiggerCards } from "../../../../components/BiggerCards";
+import { SalesFunnel } from "../../product-analytics/components/SalesFunnel";
+import { ActualVsTargetSpend } from "../components/ActualVsTargetSpend";
 
 const OrderAnalytics: React.FC = () => {
   const { values, functions } = useAdsAnalytics();
@@ -66,7 +68,29 @@ const OrderAnalytics: React.FC = () => {
           </div>
         </Col>
       </Flex>
-      {/* add code here */}
+  
+      
+      <Flex gap={24}>
+        <Col style={{ width: "35%" }}>
+          <div className={styles1.main_box} style={{ height: 392 }}>
+            <SalesFunnel data={values.funnelData} />
+          </div>
+        </Col>
+        <Col style={{ width: "65%", flex: 1 }}>
+          <div className={styles1.main_box}>
+              <ActualVsTargetSpend
+                title={"Actual vs Target Spend"}
+                rangePresets={values.rangePresets}
+                disabledDate={functions.disabledDate}
+                startTimestamp={values.startTimestamp}
+                endTimestamp={values.endTimestamp}
+                dateRangeChange={functions.dateRangeChange}
+              />
+              </div>
+        </Col>
+        </Flex>
+
+
       <div className={styles1.main_box}>
         <CampaignPerformance />
       </div>

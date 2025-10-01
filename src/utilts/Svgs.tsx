@@ -435,6 +435,23 @@ const SVGS: SVGDictionary = {
       />
     </svg>
   ),
+  goToLink: (color:string) => (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 18 18"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M9.96436 8.03566L14.7858 3.21423M14.7858 3.21423H11.5715M14.7858 3.21423V6.42852M14.7858 10.2857V13.4999C14.7858 13.8409 14.6503 14.168 14.4092 14.4091C14.1681 14.6502 13.8411 14.7857 13.5001 14.7857H4.50007C4.15908 14.7857 3.83205 14.6502 3.59093 14.4091C3.34981 14.168 3.21436 13.8409 3.21436 13.4999V4.49995C3.21436 4.15896 3.34981 3.83193 3.59093 3.59081C3.83205 3.34969 4.15908 3.21423 4.50007 3.21423H7.71436"
+        stroke={color}
+        stroke-width="1.28571"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  ),
 };
 
 const SVGComponent: FC<Props> = ({ src, color, height, width }) => {

@@ -1,5 +1,7 @@
 import { useState } from "react";
-import dayjs, { Dayjs } from "dayjs";
+import dayjs from "dayjs";
+import mobileImg from "../../../../assets/images/mobile.png";
+
 
 const useCampaignReviews = () => {
   
@@ -43,7 +45,7 @@ const useCampaignReviews = () => {
   ];
 
  const product = {
-  image: "/image.jpg",
+  image: mobileImg,
   title: "Samsung Galaxy Z Fold7 5G Smartphone with Galaxy AI (Blue shadow Color, 12GB RAM, 256GB Storage) Ultrasleek Design with 200MP Camera",
   sku: "B08XYZ1234",
   price: "₹1,74,999",

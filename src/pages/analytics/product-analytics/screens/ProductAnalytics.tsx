@@ -1,13 +1,12 @@
 import React from "react";
-import styles from "../../../../assets/scss/product-analytics.module.scss";
+import styles from "../../../../assets/scss/common.module.scss";
 import styles1 from "../../../../assets/scss/home.module.scss";
+import styles2 from "../../../../assets/scss/main_content.module.scss";
+import styles3 from "../../../../assets/scss/product-analytics.module.scss";
 import { NavigationAndTitleWrapper } from "../../../../components/NavigationAndTitleWrapper";
-
 import useCampaignReviews from "../hooks/product-Analytics";
 import useAdsAnalytics from "../../ads-analytics/hooks/adsAnalytics";
-
 import { CampaignReviewsTable } from "../components/CampaignReviewsTable";
-import SalesFunnel from "../components/SalesFunnel";
 import { CalendarOutlined } from "@ant-design/icons";
 import { Flex, Col } from "antd";
 import { GrpahInfo } from "../../../home/components/GrpahInfo";
@@ -15,6 +14,11 @@ import * as echarts from "echarts";
 import ProductCard from "../components/ProductCard";
 import AnalyticsStat from "../components/AnalyticsStat";
 import StatGroup from "../components/StatGroup";
+import { BiggerCards } from "../../../../components/BiggerCards";
+import { RevenueByCampaign } from "../../ads-analytics/components/RevenueByCampaign";
+import { SalesFunnel } from "../components/SalesFunnel";
+import GeographicalDistribution from "../../../../components/GeographicalDistribution";
+import HeatMap from "../../../../components/HeatMap";
 
 const ProductAnalytics: React.FC = () => {
   const { values: funnelValues } = useCampaignReviews();
@@ -22,40 +26,42 @@ const ProductAnalytics: React.FC = () => {
   const { values: adsValues, functions: adsFunctions } = useAdsAnalytics();
 
   return (
-    <div className={styles.product_analytics_layout}>
+    <div className={styles.common_main_layout}>
       <NavigationAndTitleWrapper
         title="Product Analytics"
         showBackArrow
         redirectionPath="/sellerboard/home"
       />
 
-      
-      <div className={styles.product_analytics_header}>
-        <ProductCard {...product} />
-        <StatGroup>
-          {stats.map((stat) => (
-            <AnalyticsStat key={stat.label} {...stat} />
-          ))}
-        </StatGroup>
-      </div>
+      <Flex gap={10} style={{ marginTop: 24 }}>
+        <Col style={{ width: "50%" }}>
+          <ProductCard {...product} />
+        </Col>
+        <Col style={{ width: "50%" }}>
+          <div
+            className={styles2.grids}
+            style={{
+              background: "white",
+              padding: 16,
+              flexWrap: "wrap",
+              borderRadius: 10,
+              gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))",
+            }}
+          >
+            {adsValues.prouctCardsArr.map((item, index) => (
+              <BiggerCards item={item} key={index} />
+            ))}
+          </div>
+        </Col>
+      </Flex>
 
-      
-      <Flex className={styles.analytics_charts_wrapper} gap={44}>
-        {/* Left: Sales Funnel */}
-        <Col style={{ width: "25%" }}>
-          <div className={styles.sales_funnel_container}>
-            <div className={styles.sales_funnel_header}>
-              <h3 className={styles.sales_funnel_title}>Sales Funnel</h3>
-              <div className={styles.sales_funnel_actions}>
-                Last 30 days <CalendarOutlined />
-              </div>
-            </div>
+      <Flex gap={24}>
+        <Col style={{ width: "35%" }}>
+          <div className={styles1.main_box} style={{ height: 392 }}>
             <SalesFunnel data={funnelValues.funnelData} />
           </div>
         </Col>
-
-        
-        <Col style={{ flex: 1, marginLeft: "20px" }}>
+        <Col style={{ width: "65%", flex: 1 }}>
           <div className={styles1.main_box}>
             <GrpahInfo
               title={"Timeline"}
@@ -79,6 +85,15 @@ const ProductAnalytics: React.FC = () => {
             />
           </div>
         </Col>
+      </Flex>
+
+      <Flex gap={24} style={{ width: "100%" }}>
+        <div className={styles1.main_box} style={{ width: "100%" }}>
+          <GeographicalDistribution title="Geographical Distribution" />
+        </div>
+        <div className={styles1.main_box} style={{ width: "100%" }}>
+          <HeatMap title={"Hourly Order Distribution"} />
+        </div>
       </Flex>
 
       <CampaignReviewsTable reviews={funnelValues.reviewsArr} />

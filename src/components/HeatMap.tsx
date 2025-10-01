@@ -109,7 +109,7 @@ const HeatMap: React.FC<{ title?: string }> = ({ title }) => {
 
   return (
     <div style={{ padding: "0px", background: "#fff", borderRadius: 12 }}>
-      {title && <div style={{ fontWeight: 600, fontSize: 24, marginBottom: 12, padding: '16px 0 0 24px' }}>{title}</div>}
+      {title && <div style={{ fontWeight: 500, fontSize: 14, marginBottom: 16, padding: '16px 0 0 24px' }}>{title}</div>}
       <div ref={chartRef} style={{ width: "100%", height: 450 }} />
     </div>
   );

@@ -95,9 +95,7 @@
   padding: 10px;
 }
 
-
 /* Right: Placeholder for other chart (75% width) */
-
 
 .product_analytics_header {
   display: flex;
@@ -113,26 +111,37 @@
 .product_card {
   flex: 1 1 50%;
   background: white;
-  border-radius: 14px 0 0 14px;
+  border-radius: 12px;
   padding: 14px 20px 14px 22px;
   display: flex;
   align-items: center;
   min-width: 0;
+  position: relative;
+   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+   &::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 }
 
 .product_image {
   width: 70px;
-  height: 85px;
+  height: auto;
   background: #fff;
   border-radius: 10px;
   object-fit: contain;
   margin-right: 16px;
   box-shadow: 0 2px 8px rgba(80, 45, 194, 0.12);
+  padding: 24px;
 }
 
 .product_info {
   position: relative;
-  background: white; /* Explicitly white background */
   padding: 8px; /* Optional padding if needed */
   flex: 1;
   display: flex;
@@ -142,19 +151,18 @@
   max-width: calc(100% - 90px);
   z-index: 0;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 38%;
-    height: 40%;
-    background: radial-gradient(ellipse 50% 60% at 85% 20%, rgba(167,134,246,0.23) 65%, transparent 100%);
-    border-top-right-radius: 14px;
-    pointer-events: none;
-    z-index: -1; /* Behind content and background */
-  }
-
+  // &::before {
+  //   content: '';
+  //   position: absolute;
+  //   top: 0;
+  //   right: 0;
+  //   width: 38%;
+  //   height: 40%;
+  //   background: radial-gradient(ellipse 50% 60% at 85% 20%, rgba(167,134,246,0.23) 65%, transparent 100%);
+  //   border-top-right-radius: 14px;
+  //   pointer-events: none;
+  //   z-index: -1; /* Behind content and background */
+  // }
 
   > * {
     position: relative;
@@ -188,11 +196,11 @@
   align-items: center;
   gap: 8px;
   font-size: 14px;
-  font-weight: 600;  /* keep offers and prime semi-bold */
+  font-weight: 600; /* keep offers and prime semi-bold */
 }
 
 .product_price {
-  font-weight: 700;    /* strong weight for price */
+  font-weight: 700; /* strong weight for price */
   color: #191919;
   font-size: 15px;
 }
@@ -214,24 +222,31 @@
   font-size: 13px;
 }
 
+  .product_go_to_link {
+    position: absolute;
+    top: 18px;
+    right: 16px;
+    cursor: pointer;
+  }
+
 .stat_group {
   flex: 1 1 50%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr 1fr;
-  gap: 8px 28px;                // Slightly reduced vertical gap
+  gap: 8px 28px; // Slightly reduced vertical gap
   background: #fff;
   border-radius: 0 14px 14px 0;
-  padding: 0px;  // Reduced padding top & bottom
+  padding: 0px; // Reduced padding top & bottom
   box-shadow: 0 2px 8px rgba(136, 97, 246, 0.06);
-  align-items: stretch;         // stretch items vertically (same height as container)
-  min-height: auto;             // Let grow based on content & container
+  align-items: stretch; // stretch items vertically (same height as container)
+  min-height: auto; // Let grow based on content & container
   height: auto;
 }
 
 .analytics_stat {
   text-align: left;
-  padding: 0px;    // Reduced padding inside stat blocks
+  padding: 0px; // Reduced padding inside stat blocks
   border-right: 1px solid #f2f2f2;
   display: flex;
   flex-direction: column;
@@ -306,5 +321,3 @@
   height: 100%;
   box-shadow: 0 2px 8px rgb(0 0 0 / 0.04);
 }
-
-

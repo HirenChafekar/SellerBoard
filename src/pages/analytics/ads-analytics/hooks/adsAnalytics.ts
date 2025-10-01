@@ -49,53 +49,87 @@ const useAdsAnalytics = () => {
   ];
 
   const cardsArr = [
+  {
+    title: "Total Ads Spend",
+    value: 4875,
+    diff: 12,
+  },
+  {
+    title: "ACOS (%)",
+    value: 23.7,
+    diff: -4,
+  },
+  {
+    title: "TACOS",
+    value: 15.2,
+    diff: 3,
+  },
+  {
+    title: "ROAS",
+    value: 5.8,
+    diff: 7,
+  },
+  {
+    title: "Impressions",
+    value: 124560,
+    diff: -8,
+  },
+  {
+    title: "Clicks",
+    value: 8450,
+    diff: 5,
+  },
+  {
+    title: "CTR",
+    value: 6.8,
+    diff: -1.2,
+  },
+  {
+    title: "CPC",
+    value: 1.23,
+    diff: -0.1,
+  },
+  {
+    title: "CPM",
+    value: 12.5,
+    diff: 2.5,
+  },
+  {
+    title: "Total Orders",
+    value: 1560,
+    diff: 9,
+  },
+];
+
+
+  const prouctCardsArr = [
     {
-      title: "Total Ad Spend",
+      title: "Stock Levels",
       value: 2420,
       diff: 40,
     },
     {
-      title: "ACOS (%)",
+      title: "Product Ratings",
       value: 1210,
       diff: -10,
     }, // ⬇️ negative trend
     {
-      title: "TACOS",
+      title: "Conversion Rate",
       value: 2420,
       diff: 40,
     },
     {
-      title: "ROAS",
-      value: 2420,
-      diff: 40,
-    },
-     {
-      title: "Impressions",
+      title: "Total Sales",
       value: 2420,
       diff: 40,
     },
     {
-      title: "Clicks",
+      title: "Units Sold",
       value: 2420,
       diff: 40,
     },
     {
-      title: "CTR",
-      value: 1210,
-      diff: -10,
-    },
-    {
-      title: "CPC",
-      value: 2420,
-      diff: 40,
-    },
-    {
-      title: "CPM",
-      value: 2420,
-      diff: 40,
-    },
-     {
-      title: "Total Orders",
+      title: "Refund Rate",
       value: 2420,
       diff: 40,
     },
@@ -106,6 +140,14 @@ const useAdsAnalytics = () => {
     { label: "TACOS", value: "tacos" },
     { label: "ROAS", value: "roas" },
   ];
+
+   const [funnelData] = useState([
+    { value: 50, name: "Impressions" },
+    { value: 15, name: "Clicks" },
+    { value: 11, name: "Add to Cart" },
+    { value: 3, name: "Purchase" },
+    { value: 8, name: "Returns" },
+  ]);
 
   const [selectedValue, setSelectedValue] = useState(selectionOptions[0].value);
 
@@ -152,14 +194,16 @@ const useAdsAnalytics = () => {
       endTimestamp,
       rangePresets,
       selectionOptions,
-      selectedValue
+      selectedValue,
+      prouctCardsArr,
+      funnelData
     },
     functions: {
       setStartTimestamp,
       setEndTimestamp,
       dateRangeChange,
       disabledDate,
-      setSelectedValue
+      setSelectedValue,
     },
   };
 };
